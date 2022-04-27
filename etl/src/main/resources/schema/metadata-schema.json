@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "metadata",
+  "type": "object",
+  "definitions": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["card", "user"]
+        },
+        "event_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$"
+        },
+        "event_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "event_at",
+        "event_id"
+      ]
+    }
+  }
+}

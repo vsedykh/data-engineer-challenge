@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "UsersEvent",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "job": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "address",
+        "job",
+        "score"
+      ]
+    },
+    "metadata": {
+      "$ref": "metadata-schema.json#/definitions/metadata"
+    }
+  },
+  "required": [
+    "payload",
+    "metadata"
+  ]
+}

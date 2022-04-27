@@ -1,5 +1,6 @@
-**/src/events
-**/src/logs
+**/events
+**/logs
+**/target
 
 output
 env

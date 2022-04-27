@@ -11,6 +11,9 @@ services:
             - ZOOKEEPER_SYNC_LIMIT=2
         ports:
             - 2181:2181
+        # volumes:
+        #     - ./data/zookeeper/data:/var/lib/zookeeper/data:rw
+        #     - ./data/zookeeper/log:/var/lib/zookeeper/log:rw
     kafka:
         image: confluentinc/cp-kafka:6.1.1
         container_name: kafka
@@ -23,3 +26,5 @@ services:
             - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
             - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
             - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+        # volumes:
+        #   - ./data/kafka/data:/var/lib/kafka/data:rw

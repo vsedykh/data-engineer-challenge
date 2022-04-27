@@ -1,0 +1,56 @@
+camel:
+  springboot:
+    main-run-controller: true
+    jmx:
+      enabled: true
+
+server:
+  port: 8080
+
+hawtio:
+  authenticationEnabled: false
+
+management:
+  # Binding health checks to a different port
+  port: 8081
+  endpoints:
+    web:
+      exposure:
+        include:
+          - hawtio
+          - camel
+          - health
+          - jolokia
+
+events:
+  folder:
+    cards: /app/events/cards
+    users: /app/events/users
+
+dwh:
+  service:
+    host:     dwh
+    database: dwh
+    port: 5432
+    username: dwh
+    password: dwh
+
+spring:
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:postgresql://${dwh.service.host}:${dwh.service.port}/${dwh.service.database}
+    username: ${dwh.service.username}
+    password: ${dwh.service.password}
+
+  # Spring Data JPA configuration
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      # To be updated in real production usage!
+      ddl-auto: create-drop
+    show-sql: false
+
+#spring.datasource.driver-class-name=org.postgresql.Driver
+
+
+
